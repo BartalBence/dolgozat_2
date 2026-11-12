@@ -7,6 +7,7 @@ namespace dolgozat_2
     {
         static string[] huto_elemek = new string[10];
         static string[] seged = new string[10];
+        static char[] betuk = ['a', 'á', 'e', 'é', 'i', 'í', 'o', 'ó', 'ö', 'ő', 'u', 'ú', 'ü', 'ű'];
 
         static void Feladat01()
         {
@@ -73,13 +74,35 @@ namespace dolgozat_2
             {
                 if (huto_elemek[i] == etelNeve)
                 {
-                    Console.WriteLine($"A keresett étel a(z) {i+1}. indexen található.");
+                    Console.WriteLine($"A keresett étel a(z) {i + 1}. indexen található.");
                     talalat = true;
                 }
             }
             if (talalat == false)
             {
                 Console.WriteLine(0);
+            }
+        }
+
+        static void Maganhangzo()
+        {
+            for (int i = 0; i < huto_elemek.Length; i++)
+            {
+                if (huto_elemek[i] != null)
+                {
+
+                    string etel = huto_elemek[i];
+                    char betu = etel[0];
+
+
+                    for (int x = 0; x < betuk.Length; x++)
+                    {
+                        if (betuk[x] == betu)
+                        {
+                            Console.Write(etel + ", ");
+                        }
+                    }
+                }
             }
         }
 
@@ -94,6 +117,7 @@ namespace dolgozat_2
             Elhelyezes();
             Takarit();
             KeresEtel();
+            Maganhangzo();
         }
     }
 }
