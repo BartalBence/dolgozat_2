@@ -8,6 +8,9 @@ namespace dolgozat_2
         static string[] huto_elemek = new string[10];
         static string[] seged = new string[10];
         static char[] betuk = ['a', 'á', 'e', 'é', 'i', 'í', 'o', 'ó', 'ö', 'ő', 'u', 'ú', 'ü', 'ű'];
+        static int[] szamok = new int[10];
+
+        static Random r = new Random();
 
         static void Feladat01()
         {
@@ -106,18 +109,49 @@ namespace dolgozat_2
             }
         }
 
+        //2. Feladat
+
+        
+
+        static void FeltoltEgyediekkel(int min, int max)
+        {
+            int randomSzam;
+            bool szam = false;
+            for (int i = 0; i < szamok.Length; i++)
+            {
+
+                randomSzam = r.Next(min, max);
+
+                while (szamok.Contains(randomSzam))
+                {
+                    randomSzam = r.Next(min, max);
+                }
+                szamok[i] = randomSzam;
+            }
+
+
+            foreach (int item in szamok)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
 
 
         static void Main(string[] args)
         {
-            Feladat01();
-            Elhelyezes();
-            Elhelyezes();
-            Elhelyezes();
-            Elhelyezes();
-            Takarit();
-            KeresEtel();
-            Maganhangzo();
+            //Feladat01();
+            //Elhelyezes();
+            //Elhelyezes();
+            //Elhelyezes();
+            //Elhelyezes();
+            //Takarit();
+            //KeresEtel();
+            //Maganhangzo();
+
+            //2. Feladat
+            FeltoltEgyediekkel(1, 20);
+
         }
     }
 }
