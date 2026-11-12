@@ -10,7 +10,7 @@ namespace dolgozat_2
 
         static void Feladat01()
         {
-            for (int i = 0; i < huto_elemek.Length - 1; i++)
+            for (int i = 0; i < huto_elemek.Length; i++)
             {
                 huto_elemek[i] = " ";
             }
@@ -63,6 +63,26 @@ namespace dolgozat_2
             Console.WriteLine();
         }
 
+        static void KeresEtel()
+        {
+            Console.Write("Add meg a keresett étel nevét: ");
+            string etelNeve = Console.ReadLine();
+            bool talalat = false;
+
+            for (int i = 0; i < huto_elemek.Length; i++)
+            {
+                if (huto_elemek[i] == etelNeve)
+                {
+                    Console.WriteLine($"A keresett étel a(z) {i+1}. indexen található.");
+                    talalat = true;
+                }
+            }
+            if (talalat == false)
+            {
+                Console.WriteLine(0);
+            }
+        }
+
 
 
         static void Main(string[] args)
@@ -73,6 +93,7 @@ namespace dolgozat_2
             Elhelyezes();
             Elhelyezes();
             Takarit();
+            KeresEtel();
         }
     }
 }
