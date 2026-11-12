@@ -9,6 +9,7 @@ namespace dolgozat_2
         static string[] seged = new string[10];
         static char[] betuk = ['a', 'á', 'e', 'é', 'i', 'í', 'o', 'ó', 'ö', 'ő', 'u', 'ú', 'ü', 'ű'];
         static int[] szamok = new int[10];
+        static int[] novekvo = new int[10];
 
         static Random r = new Random();
 
@@ -135,7 +136,27 @@ namespace dolgozat_2
                 Console.WriteLine(item);
             }
         }
+        
+        static void LeghosszabbNovekvo()
+        {
 
+            bool torles = false;
+            int x = 0;
+            for (int i = 0; i < szamok.Length; i++)
+            {
+                if (szamok[i] < szamok[i+1])
+                {
+                    novekvo[x] = szamok[i];
+                    x++;
+                }
+
+
+                else
+                {
+                    torles = true;
+                }
+            }
+        }
 
 
         static void Main(string[] args)
@@ -151,7 +172,7 @@ namespace dolgozat_2
 
             //2. Feladat
             FeltoltEgyediekkel(1, 20);
-
+            LeghosszabbNovekvo();
         }
     }
 }
