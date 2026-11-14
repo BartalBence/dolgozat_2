@@ -183,6 +183,27 @@ namespace dolgozat_2
         }
 
 
+        static void AtlagAlattiDuplazas()
+        {
+            int atlag = 0;
+
+            foreach (int item in szamok)
+            {
+                atlag += item;
+            }
+            atlag /= szamok.Length;
+
+
+            for (int i = 0; i < szamok.Length; i++)
+            {
+                if (szamok[i] < atlag)
+                {
+                    szamok[i] *= 2;
+                }
+            }
+        }
+
+
         static void Main(string[] args)
         {
             //1. Feladat
@@ -198,7 +219,8 @@ namespace dolgozat_2
 
             //2. Feladat
             FeltoltEgyediekkel(1, 20);
-            LeghosszabbNovekvo();
+            //LeghosszabbNovekvo();
+            AtlagAlattiDuplazas();
         }
     }
 }
