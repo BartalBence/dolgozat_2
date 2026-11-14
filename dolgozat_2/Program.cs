@@ -208,18 +208,18 @@ namespace dolgozat_2
         {
             //1. Feladat
 
-            //Feladat01();
-            //Elhelyezes();
-            //Elhelyezes();
-            //Elhelyezes();
-            //Elhelyezes();
-            //Takarit();
-            //KeresEtel();
-            //Maganhangzo();
+            Feladat01();
+            Elhelyezes();
+            Elhelyezes();
+            Elhelyezes();
+            Elhelyezes();
+            Takarit();
+            KeresEtel();
+            Maganhangzo();
 
             //2. Feladat
             FeltoltEgyediekkel(1, 20);
-            //LeghosszabbNovekvo();
+            LeghosszabbNovekvo();
             AtlagAlattiDuplazas();
         }
     }
