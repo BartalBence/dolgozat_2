@@ -10,6 +10,7 @@ namespace dolgozat_2
         static char[] betuk = ['a', 'á', 'e', 'é', 'i', 'í', 'o', 'ó', 'ö', 'ő', 'u', 'ú', 'ü', 'ű'];
         static int[] szamok = new int[10];
         static int[] novekvo = new int[10];
+        static int[] szamlalo = new int[10];
 
         static Random r = new Random();
 
@@ -112,7 +113,7 @@ namespace dolgozat_2
 
         //2. Feladat
 
-        
+
 
         static void FeltoltEgyediekkel(int min, int max)
         {
@@ -136,31 +137,56 @@ namespace dolgozat_2
                 Console.WriteLine(item);
             }
         }
-        
+
         static void LeghosszabbNovekvo()
         {
+            int szamlalo_szamlalo = 0;
+            int novekvo_szamlalo = 0;
 
-            bool torles = false;
-            int x = 0;
             for (int i = 0; i < szamok.Length; i++)
             {
-                if (szamok[i] < szamok[i+1])
+                if (i == 0 || szamok[i] > szamok[i - 1])
                 {
-                    novekvo[x] = szamok[i];
-                    x++;
+                    szamlalo[szamlalo_szamlalo] = szamok[i];
+                    szamlalo_szamlalo++;
                 }
-
-
                 else
                 {
-                    torles = true;
+                    if (szamlalo_szamlalo > novekvo_szamlalo)
+                    {
+                        Array.Copy(szamlalo, novekvo, szamlalo_szamlalo);
+                        novekvo_szamlalo = szamlalo_szamlalo;
+                    }
+
+                    szamlalo_szamlalo = 0;
+
+                    szamlalo[szamlalo_szamlalo] = szamok[i];
+                    szamlalo_szamlalo++;
                 }
+
             }
+
+            if (szamlalo_szamlalo > novekvo_szamlalo)
+            {
+                Array.Copy(szamlalo, novekvo, szamlalo_szamlalo);
+                novekvo_szamlalo = szamlalo_szamlalo;
+            }
+
+
+            Console.WriteLine("Leghosszabb növekvő rész sorozat: ");
+
+            for (int i = 0; i < novekvo_szamlalo; i++)
+            {
+                Console.Write(novekvo[i] + ", ");
+            }
+
         }
 
 
         static void Main(string[] args)
         {
+            //1. Feladat
+
             //Feladat01();
             //Elhelyezes();
             //Elhelyezes();
